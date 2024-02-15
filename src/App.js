@@ -1,22 +1,24 @@
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import './App.css'
-import { Home } from './pages/home/Home';
-import { Allproducts } from './pages/allproducts/Allproducts';
-// import { Dashboard } from './pages/admin/dashboard/Dashboard';
-import  {Nopage}  from './pages/nopage/Nopage';
-import MyState from './context/data/myState';
+import { Home } from './components/home/Home';
+import { Category } from './components/category/Category';
+import { SingleProduct } from './components/products/SingleProduct';
+import { Header } from './components/header/Header';
+import { Footer } from './components/footer/Footer';
+import AppContext from './utils/context';
 function App() {
   return(
-    <MyState>
     <Router>
+      <AppContext>
+      <Header/>
       <Routes>
         <Route path='/' element = {<Home/>}/>
-        <Route path='/allproducts' element = {<Allproducts/>}/>
-        {/* <Route path='/dashboard' element = {<Dashboard/>}></Route> */}
-        <Route path='/*' element = {<Nopage/>}/>
+        <Route path='/category/:id' element = {<Category/>}/>
+        <Route path='/products/:id' element = {<SingleProduct/>}/>
       </Routes>
+      <Footer/>
+      </AppContext>
     </Router>
-   </MyState>
   ) 
 }
 export default App;

@@ -1,7 +1,11 @@
 import React from 'react'
+import { Newsletter } from './newsletter/Newsletter'
 
 export const Footer = () => {
   return (
-    <div>Footer</div>
+    <div>
+    <Newsletter />
+
+    </div>
   )
 }
